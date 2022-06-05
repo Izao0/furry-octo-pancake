@@ -20,17 +20,7 @@ function service(url) {
     };
   });
 }
-/*
-function service(url, callback) {
-  const xhr = new XMLHttpRequest();
-  xhr.open("GET", url);
-  const loadHangler = () => {
-    callback(JSON.parse(xhr.response));
-  };
-  xhr.onload = loadHangler;
 
-  xhr.send();
-}*/
 class GoodsItem {
   constructor({ product_name, price }) {
     this.title = product_name;
