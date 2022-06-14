@@ -13,35 +13,31 @@
    <div id="root">
       <header>
          <div class="search">
-            <input type="text" class="goods-search" v-model="searchValue" />
-            <!--<button class="search-button" type="button" @click="filterItems">Искать</button>-->
+            <custom-search v-model="searchValue" ></custom-search>
+            <!--
+               <input type="text" class="goods-search" v-model="searchValue"/>
+               <custom-button v-on:click="filterItems">искать</custom-button>
+            -->
+
          </div>
          <div class="actions">
-            <button class="cart-button" type="button"   @click="setVisibleCard">Корзина {{ calculatePrice }}</button>
-            <button class="search-button" type="button" v-on:click="filterItems">Искать</button>
+            <custom-button v-on:click="setVisibleCard">Корзина</custom-button>
+
          </div>
       </header>
       <main>
          <div class="goods-list">
-            <div class="goods-item" v-for="item in filteredItems">
+            <good v-for="item in filteredItems" v-bind:item="item"></good>
+
+            </good>
+            <!--<div class="goods-item" v-for="item in filteredItems">
                <h3>{{ item.product_name }}</h3>
                <p>{{ item.price }}</p>
-            </div>
+            </div>-->
          </div>
       </main>
 
-      <div class="fixed-area" v-if="isVisibleCard">
-         <div class="basket-card">
-            <div class="basket-card_header">
-               <h1 class="basket-card_header__title">basket card</h1>
-               <div class="basket-card_header__delete-icon" @click="setVisibleCard"></div>
-            </div>
-
-            <div class="basket-card__content">
-               content
-            </div>
-         </div>
-      </div>
+      <basket v-if="isVisibleCard" v-on:close="setVisibleCard"></basket>
    </div>
 </body>
 

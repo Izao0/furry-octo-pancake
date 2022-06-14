@@ -75,6 +75,8 @@ button {
 }
 
 .basket-card_header {
+    display: flex;
+    justify-content: space-around;
     box-sizing: border-box;
     display: grid;
     grid-template-columns: auto max-content;
@@ -84,13 +86,14 @@ button {
     padding: 10px
 }
 
-.basket-card_header__delete-icon {
-    background-image: url("img/delete_icon.png");
+.basket-card__header__delete-icon {
+    background-image: url("img/dicon.png");
     background-size: contain;
     width: 30px;
     height: 30px;
     margin: 10px;
     cursor: pointer;
+    
 }
 
 .basket-card__content {
