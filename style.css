@@ -47,9 +47,14 @@ button {
     padding: 10px;
     box-sizing: border-box;
     outline: 1px solid black;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: min-content auto min-content;
     gap: 10px;
+}
+
+.goods-item > * {
+    display: flex;
+    justify-content: center;
 }
 
 .goods-search {
@@ -74,9 +79,9 @@ button {
     grid-template-rows: max-content auto;
 }
 
-.basket-card_header {
+.basket-card__header {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     box-sizing: border-box;
     display: grid;
     grid-template-columns: auto max-content;

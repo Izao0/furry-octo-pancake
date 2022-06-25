@@ -1,0 +1,22 @@
+[
+    {
+        "id_product": 1, 
+        "product_name": "Ноутбук", 
+        "price": 45600
+    },
+    {
+        "id_product": 2, 
+        "product_name": "Процессор", 
+        "price": 20000
+    },
+    {
+        "id_product": 3, 
+        "product_name": "Клавиатура", 
+        "price": 5000
+    },
+    {
+        "id_product": 4, 
+        "product_name": "Наушники", 
+        "price": 7500
+    }
+]

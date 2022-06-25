@@ -1,7 +1,7 @@
 const BASE_URL =
-  "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses";
-const GOODS = `${BASE_URL}/catalogData.json`;
-const GET_BASKET_GOODS_ITEMS = `${BASE_URL}/getBasket.json`;
+  "http://localhost:8000/";
+const GOODS = `${BASE_URL}/goods.json`;
+const GET_BASKET_GOODS_ITEMS = `${BASE_URL}basket`;
 
 function service(url) {
   return fetch(url).then((res) => res.json());
@@ -27,26 +27,26 @@ function init() {
                ></div>
             </div>
             <div class="basket-card__content">
-               content
+              <p class="basket-card__content__title">product 1<p>
+              <span class="basket-card__price">200<span>
+              <span class="basket-card__count"> 1шт.</span>
+              <button class="basket-card__add">+</button>
+              <button class="basket-card__remove">-</button>
             </div>
          </div>
       </div>
-    `
+    `,
+    mounted(){
+      service(GET_BASKET_GOODS_ITEMS).then(() => {
+        this.basketGoodsItems = data;
+      })
+    }
   })
-/*
-  Vue.component('custom-button', {
-    template: `
-      <button class="search-button" type="button" @click="$emit('click')>
-        <slot> </slot>
-      </button>
-    `
-    
-    */
 
   Vue.component('custom-button', {
     template: `
     <button class="search-button" type="button" v-on:click="$emit('click')">
-      <slot></slot>
+      <slot>Добавить</slot>
     </button>
     `
   })
@@ -58,6 +58,9 @@ function init() {
     <div class="goods-item">
       <h3>{{ item.product_name }}</h3>
       <p>{{ item.price }}</p>
+      <div>
+        <custom-button></custom-button>
+      </div>
     </div>
     `,
   });
